@@ -1,0 +1,23 @@
+server:
+  port: 8080
+spring:
+  main:
+    banner-mode: 'off'
+  mvc:
+    favicon:
+      enabled: false
+    jmx:
+      enabled: true
+  session:
+    store-type: none
+springfox:
+  documentation:
+    swagger:
+      v2:
+        path: /v2/api-docs
+#infinispan:
+#  remote:
+#    enabled: true
+#    server-list: 192.168.99.100:11222
+#    client-properties: hotrod-client.properties
+
