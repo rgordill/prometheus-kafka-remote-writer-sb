@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.xerial.snappy.Snappy;
 
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.util.JsonFormat;
 
 import prometheus.Remote.WriteRequest;
 import prometheus.Types.Label;
@@ -36,6 +37,9 @@ public class RemoteController {
 
 		WriteRequest wr = WriteRequest.parseFrom(Snappy.uncompress(byteArray));
 
+		logger.info(JsonFormat.printer().print(wr));
+
+		/*
 		List<TimeSeries> tsl = wr.getTimeseriesList();
 
 		for (TimeSeries ts : tsl) {
@@ -45,22 +49,26 @@ public class RemoteController {
 
 			for (Sample s : ls) {
 
+				
 				String timestamp = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX")
 						.format(new Date(s.getTimestamp()));
 				String name = lm.get("__name__");
 				String value = String.valueOf(s.getValue());
 
 				logger.info("Sample: timestamp=" + timestamp + ", name=" + name + ", value=" + value + ", labels=" + mapAsString(lm));
+				
 			}
-		}		
+		}
+		*/
 	}
 	
+	/*
 	private String mapAsString(Map<String, String> map) {
 	    String mapAsString = map.keySet().stream()
 	      .map(key -> key + "=" + map.get(key))
 	      .collect(Collectors.joining(", ", "{", "}"));
 	    return mapAsString;
 	}
-
+	*/
 
 }
