@@ -20,4 +20,7 @@ springfox:
 #    enabled: true
 #    server-list: 192.168.99.100:11222
 #    client-properties: hotrod-client.properties
+kafka:
+  bootstrapAddress: "localhost:9092"
+  topic: "prometheus"
 
