@@ -8,7 +8,7 @@
 	<artifactId>springboot-writer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-	<name>prometheus-springboot-remote-writer</name>
+	<name>prometheus-springboot-remote-writer-sb</name>
 	<description>Prometheus Springboot Remote Writer</description>
 	<packaging>jar</packaging>
 
